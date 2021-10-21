@@ -1,0 +1,4 @@
+jupyterlab-language-pack-de-DE
+jupyterlab_latex
+nbconvert
+nbgrader
