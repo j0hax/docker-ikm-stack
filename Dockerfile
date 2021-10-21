@@ -4,6 +4,7 @@ FROM jupyter/datascience-notebook
 ENV JUPYTER_ENABLE_LAB=yes
 
 COPY README.md /home/jovyan
+COPY overrides.json /opt/conda/share/jupyter/lab/settings/
 
 # Julia-Abhängigkeiten Installieren
 RUN julia -e 'import Pkg; Pkg.add("Plots")'
