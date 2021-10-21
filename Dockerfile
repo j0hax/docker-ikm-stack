@@ -1,5 +1,8 @@
 FROM jupyter/datascience-notebook
 
+# Neues Lab-Interface aktivieren
+ENV JUPYTER_ENABLE_LAB=yes
+
 # JupyterHub erforderlich
 RUN pip install jupyterhub
 
