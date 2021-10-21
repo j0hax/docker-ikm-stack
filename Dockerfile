@@ -8,6 +8,7 @@ COPY overrides.json /opt/conda/share/jupyter/lab/settings/
 
 # Julia-Abhängigkeiten Installieren
 RUN julia -e 'import Pkg; Pkg.add("Plots")'
+RUN julia -e 'using Pkg; Pkg.add("LanguageServer")'
 
 # Zusatz-Features aktivieren
 COPY plugins.txt /tmp
