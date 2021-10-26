@@ -13,3 +13,5 @@ RUN julia -e 'using Pkg; Pkg.add("LanguageServer")'
 # Zusatz-Features aktivieren
 COPY plugins.txt /tmp
 RUN pip install -r /tmp/plugins.txt
+COPY logo /etc/motd
+RUN echo "cat /etc/motd" >> .profile
