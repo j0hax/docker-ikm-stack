@@ -2,5 +2,6 @@ jedi-language-server
 jupyterlab-language-pack-de-DE
 jupyterlab-lsp
 jupyterlab_latex
+jupyterlab-link-share
 nbconvert
 nbgrader
