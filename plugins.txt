@@ -5,3 +5,4 @@ jupyterlab_latex
 jupyterlab-link-share
 nbconvert
 nbgrader
+octave_kernel
