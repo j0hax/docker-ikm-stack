@@ -18,3 +18,5 @@ COPY plugins.txt /tmp
 RUN pip install --no-cache-dir -r /tmp/plugins.txt
 COPY logo /etc/motd
 RUN echo "cat /etc/motd" >> .profile
+
+WORKDIR $HOME/work
