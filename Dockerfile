@@ -15,8 +15,9 @@ COPY packages.jl /tmp/packages.jl
 RUN julia /tmp/packages.jl
 
 # Zusatz-Features aktivieren
-COPY plugins.txt /tmp/plugins.txt
-RUN pip install --no-cache-dir -r /tmp/plugins.txt
+COPY requirements.txt /tmp/requirements.txt
+RUN mamba install -c conda-forge --file /tmp/requirements.txt
+
 COPY logo /etc/motd
 RUN echo "cat /etc/motd" >> .profile
 
