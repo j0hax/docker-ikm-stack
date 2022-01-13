@@ -8,3 +8,4 @@ octave_kernel
 jupyterlab-git
 texlab
 chktex
+jedi-language-server
