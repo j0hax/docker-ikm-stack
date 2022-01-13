@@ -9,3 +9,4 @@ jupyterlab-git
 texlab
 chktex
 jedi-language-server
+r-languageserver
