@@ -6,3 +6,5 @@ nbconvert
 nbgrader
 octave_kernel
 jupyterlab-git
+texlab
+chktex
