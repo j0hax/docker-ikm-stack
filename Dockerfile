@@ -12,6 +12,7 @@ USER jovyan
 
 # Julia-Abhängigkeiten Installieren
 COPY packages.jl /tmp/packages.jl
+ENV JULIA_NUM_THREADS=auto
 RUN julia /tmp/packages.jl
 
 # Zusatz-Features aktivieren
