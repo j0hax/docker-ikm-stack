@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook
+FROM jupyter/datascience-notebook:f51aa480b7b5
 
 # Neues Lab-Interface aktivieren
 ENV JUPYTER_ENABLE_LAB=yes
