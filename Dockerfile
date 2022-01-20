@@ -5,8 +5,15 @@ ENV JUPYTER_ENABLE_LAB=yes
 
 COPY overrides.json /opt/conda/share/jupyter/lab/settings/
 
-# Installiere zusätzliche Pakete
 USER root
+
+# System auf deutsch stellen
+RUN locale-gen de_DE.UTF-8
+RUN update-locale LC_ALL=de_DE.UTF-8
+ENV LANG=de_DE.UTF-8
+ENV LC_ALL=de_DE.UTF-8
+
+# Installiere zusätzliche Pakete
 RUN apt-get -y update && apt-get -y install octave
 USER jovyan
 
