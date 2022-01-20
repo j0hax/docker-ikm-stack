@@ -29,4 +29,6 @@ RUN mamba install -c conda-forge --file /tmp/requirements.txt
 COPY logo /etc/motd
 RUN echo "cat /etc/motd" >> .profile
 
+ENV HISTFILE=$HOME/work/.bash_history
+
 WORKDIR $HOME/work
