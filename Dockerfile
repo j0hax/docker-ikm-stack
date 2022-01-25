@@ -14,7 +14,7 @@ ENV LANG=de_DE.UTF-8
 ENV LC_ALL=de_DE.UTF-8
 
 # Installiere zusätzliche Pakete
-RUN apt-get -y update && apt-get -y install octave
+RUN apt-get -y update && apt-get install -y octave && apt-get clean && rm -rf /var/lib/apt/lists/*
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
