@@ -10,3 +10,5 @@ texlab
 chktex
 jedi-language-server
 r-languageserver
+lfortran
+fortran-language-server

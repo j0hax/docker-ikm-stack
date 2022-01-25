@@ -8,7 +8,7 @@ Betriebsbereites Docker-Image für Jupyter-Anwendungen innerhalb des IKMs. Haupt
 
 Folgendes Software wird unterstützt:
 
-- Programmiersprachen *Julia*, *Python*, *R* sowie *GNU Octave*
+- Programmiersprachen *Julia*, *Python*, *R* sowie *GNU Octave* und *Fortran*
 - LaTeX Bearbeitung
 
 # Sprachen
