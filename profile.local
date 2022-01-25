@@ -1,0 +1,10 @@
+#
+# IKM global profile 64_bit (for applications which are installed in global)
+#
+
+alias hostname='hostname -f'
+alias traceroute='traceroute -I'
+
+test -r /global/linux/64_bit/etc/profile.global && . /global/linux/64_bit/etc/profile.global
+cd
+
