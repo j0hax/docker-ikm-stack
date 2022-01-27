@@ -7,7 +7,6 @@ jupyterlab_latex
 jupyterlab-link-share
 jupyterlab-lsp
 lfortran
-matlab_kernel
 nbconvert
 nbgrader
 octave_kernel
