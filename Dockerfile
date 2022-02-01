@@ -7,6 +7,9 @@ COPY overrides.json /opt/conda/share/jupyter/lab/settings/
 
 USER root
 
+# Uni Hannover Mirror verwenden
+RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.de\/ubuntu\//g' /etc/apt/sources.list
+
 # System auf deutsch stellen
 RUN locale-gen de_DE.UTF-8
 RUN update-locale LC_ALL=de_DE.UTF-8
