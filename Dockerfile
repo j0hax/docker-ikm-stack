@@ -17,8 +17,7 @@ ENV LANG=de_DE.UTF-8
 ENV LC_ALL=de_DE.UTF-8
 
 # Installiere zusätzliche Pakete
-RUN apt-get -y update && apt-get install -y octave zsh && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN chsh -s /usr/bin/zsh jovyan
+RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh && apt-get clean && rm -rf /var/lib/apt/lists/*
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
@@ -40,6 +39,7 @@ RUN touch .zshrc
 COPY logos/lfortran-32.png /opt/conda/share/jupyter/kernels/fortran/logo-32x32.png
 COPY logos/lfortran-64.png /opt/conda/share/jupyter/kernels/fortran/logo-64x64.png
 
+ENV SHELL=zsh
 ENV HISTFILE=$HOME/work/.bash_history
 
 WORKDIR $HOME/work
