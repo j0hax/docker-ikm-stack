@@ -12,4 +12,6 @@ setopt appendhistory
 setopt INC_APPEND_HISTORY  
 setopt SHARE_HISTORY
 
+alias ls='ls --color=auto'
+
 cat /etc/motd
