@@ -1,3 +1,4 @@
+black
 chktex
 fortran-language-server
 jedi-language-server
