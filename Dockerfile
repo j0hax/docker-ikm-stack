@@ -40,6 +40,6 @@ COPY logos/lfortran-32.png /opt/conda/share/jupyter/kernels/fortran/logo-32x32.p
 COPY logos/lfortran-64.png /opt/conda/share/jupyter/kernels/fortran/logo-64x64.png
 
 ENV SHELL=zsh
-ENV HISTFILE=$HOME/work/.bash_history
+ENV HISTFILE=$HOME/work/.history
 
 WORKDIR $HOME/work
