@@ -16,7 +16,7 @@ ENV LANG=de_DE.UTF-8
 ENV LC_ALL=de_DE.UTF-8
 
 # Installiere zusätzliche Pakete
-RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh golang && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh golang htop && apt-get clean && rm -rf /var/lib/apt/lists/*
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
