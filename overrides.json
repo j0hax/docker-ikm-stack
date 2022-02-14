@@ -1,10 +1,17 @@
 {
   "@jupyterlab/docmanager-extension:plugin": {
     "defaultViewers": {
-        "markdown": "Markdown Preview"
+      "markdown": "Markdown Preview"
     }
   },
   "@jupyterlab/translation-extension:plugin": {
-  	"locale": "de_DE"
+    "locale": "de_DE"
+  },
+  "@jupyterlab/apputils-extension:themes": {
+    "overrides": {
+      "content-font-family": "Rotis Sans Serif Std",
+      "ui-font-family": "Rotis Sans Serif Std"
+    },
+    "theme-scrollbars": true
   }
 }
