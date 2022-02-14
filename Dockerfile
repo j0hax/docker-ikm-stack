@@ -11,8 +11,7 @@ USER root
 RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.de\/ubuntu\//g' /etc/apt/sources.list
 
 # System auf deutsch stellen
-RUN locale-gen de_DE.UTF-8
-RUN update-locale LC_ALL=de_DE.UTF-8
+RUN locale-gen de_DE.UTF-8 && update-locale LC_ALL=de_DE.UTF-8
 ENV LANG=de_DE.UTF-8
 ENV LC_ALL=de_DE.UTF-8
 
@@ -27,8 +26,7 @@ RUN julia /tmp/packages.jl
 
 # Zusatz-Features aktivieren
 COPY requirements.txt /tmp/requirements.txt
-RUN mamba install -c conda-forge --file /tmp/requirements.txt
-RUN mamba clean -a -y
+RUN mamba install -c conda-forge --file /tmp/requirements.txt && mamba clean -a -y
 
 # Golang installieren
 RUN env GO111MODULE=on go get github.com/gopherdata/gophernotes && mkdir -p ~/.local/share/jupyter/kernels/gophernotes && cd ~/.local/share/jupyter/kernels/gophernotes && cp "$(go env GOPATH)"/pkg/mod/github.com/gopherdata/gophernotes@v0.7.4/kernel/*  "." && chmod +w ./kernel.json && sed "s|gophernotes|$(go env GOPATH)/bin/gophernotes|" < kernel.json.in > kernel.json
