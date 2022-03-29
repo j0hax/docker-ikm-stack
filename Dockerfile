@@ -16,7 +16,7 @@ ENV LANG=de_DE.UTF-8
 ENV LC_ALL=de_DE.UTF-8
 
 # Installiere zusätzliche Pakete
-RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh golang htop && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh htop && apt-get clean && rm -rf /var/lib/apt/lists/*
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
@@ -27,9 +27,6 @@ RUN julia /tmp/packages.jl
 # Zusatz-Features aktivieren
 COPY requirements.txt /tmp/requirements.txt
 RUN mamba install -c conda-forge --file /tmp/requirements.txt && mamba clean -a -y
-
-# Golang installieren
-RUN env GO111MODULE=on go get github.com/gopherdata/gophernotes && mkdir -p ~/.local/share/jupyter/kernels/gophernotes && cd ~/.local/share/jupyter/kernels/gophernotes && cp "$(go env GOPATH)"/pkg/mod/github.com/gopherdata/gophernotes@v0.7.4/kernel/*  "." && chmod +w ./kernel.json && sed "s|gophernotes|$(go env GOPATH)/bin/gophernotes|" < kernel.json.in > kernel.json
 
 COPY logos/ikm /etc/motd
 COPY .zshrc $HOME/.zshrc
