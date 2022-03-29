@@ -14,8 +14,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.d
 RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh htop locales && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Setze Sprache auf Deutsch
-RUN echo "Europe/Berlin" > /etc/timezone && \
-    echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && \
+RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=de_DE.UTF-8
 
