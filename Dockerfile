@@ -26,7 +26,7 @@ RUN julia /tmp/packages.jl
 
 # Zusatz-Features aktivieren
 COPY requirements.txt /tmp/requirements.txt
-RUN mamba install -c conda-forge --file /tmp/requirements.txt && mamba clean -a -y
+RUN mamba install -y -c conda-forge --file /tmp/requirements.txt && mamba clean -a -y
 
 COPY logos/ikm /etc/motd
 COPY .zshrc $HOME/.zshrc
