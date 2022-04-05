@@ -1,5 +1,3 @@
-export LANG=de_DE.UTF-8
-
 autoload -Uz compinit promptinit
 compinit
 promptinit
