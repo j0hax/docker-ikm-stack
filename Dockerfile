@@ -31,5 +31,6 @@ COPY logos/lfortran-64.png /opt/conda/share/jupyter/kernels/fortran/logo-64x64.p
 
 ENV SHELL=zsh
 ENV LANG=de_DE.UTF-8
+ENV LC_ALL=de_DE.UTF-8
 
 WORKDIR $HOME/work
