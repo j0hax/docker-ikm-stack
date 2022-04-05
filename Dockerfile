@@ -11,7 +11,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.d
 RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh htop locales && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Setze Sprache auf Deutsch
-RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
+RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen && update-locale LANG=de_DE.UTF-8 LC_ALL=de_DE.UTF-8
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
