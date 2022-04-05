@@ -1,7 +1,4 @@
-FROM jupyter/datascience-notebook:f51aa480b7b5
-
-# Neues Lab-Interface aktivieren
-ENV JUPYTER_ENABLE_LAB=yes
+FROM jupyter/datascience-notebook:latest
 
 COPY overrides.json /opt/conda/share/jupyter/lab/settings/
 
@@ -14,7 +11,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.d
 RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh htop locales && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Setze Sprache auf Deutsch
-RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen && update-locale LANG=de_DE.UTF-8
+RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 USER jovyan
 
 # Julia-Abhängigkeiten Installieren
@@ -33,5 +30,6 @@ COPY logos/lfortran-32.png /opt/conda/share/jupyter/kernels/fortran/logo-32x32.p
 COPY logos/lfortran-64.png /opt/conda/share/jupyter/kernels/fortran/logo-64x64.png
 
 ENV SHELL=zsh
+ENV LANG=de_DE.UTF-8
 
 WORKDIR $HOME/work
