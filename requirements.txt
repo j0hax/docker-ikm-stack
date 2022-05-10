@@ -1,4 +1,3 @@
-black
 chktex
 fortran-language-server
 jedi-language-server
@@ -9,7 +8,6 @@ jupyterlab-link-share
 jupyterlab-lsp
 lfortran
 nbconvert
-nbgrader
 octave_kernel
 pymatbridge
 r-languageserver
