@@ -7,7 +7,7 @@ jupyterlab_latex==3.1.0
 jupyterlab-link-share==0.2.4
 jupyterlab-lsp==3.10.1
 lfortran==0.14.0
-nbconvert==6.5.1
+nbconvert==6.5.2
 octave_kernel==0.34.2
 pymatbridge==0.5.2
 r-languageserver==0.3.12
