@@ -1,7 +1,7 @@
 chktex==1.7.6
 fortran-language-server==1.12.0
 jedi-language-server==0.37.0
-jupyterlab-git==0.38.0
+jupyterlab-git==0.39.0
 jupyterlab-language-pack-de-DE==3.4.post3
 jupyterlab_latex==3.1.0
 jupyterlab-link-share==0.2.4
