@@ -5,7 +5,7 @@ jupyterlab-git==0.39.0
 jupyterlab-language-pack-de-DE==3.4.post3
 jupyterlab_latex==3.1.0
 jupyterlab-link-share==0.2.4
-jupyterlab-lsp==3.10.1
+jupyterlab-lsp==3.10.2
 lfortran==0.14.0
 nbconvert==7.0.0
 octave_kernel==0.34.2
