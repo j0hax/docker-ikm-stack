@@ -12,3 +12,4 @@ octave_kernel==0.34.2
 pymatbridge==0.5.2
 r-languageserver==0.3.12
 texlab==3.3.2
+tensorflow
