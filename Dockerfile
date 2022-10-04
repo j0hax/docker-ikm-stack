@@ -1,36 +1,26 @@
 FROM jupyter/datascience-notebook:latest
 
+# Benutzerdefinierte Einstellungen einrichten
 COPY overrides.json /opt/conda/share/jupyter/lab/settings/
+ENV JULIA_NUM_THREADS=auto
 
+# Installiere Abhängigkeiten
 USER root
 
-# Uni Hannover Mirror verwenden
-RUN sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu\//https:\/\/ftp.uni-hannover.de\/ubuntu\//g' /etc/apt/sources.list
+# Linux bzw. Apt
+RUN apt-get update && apt-get install -y octave && rm -rf /var/lib/apt/lists/*
 
-# Installiere zusätzliche Pakete
-RUN apt-get -y update && apt-get install --no-install-recommends -y octave zsh htop locales && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Julia
+RUN julia --project -e "using Pkg; Pkg.add([\"Plots\", \"PlotlyJS\", \"GenericLinearAlgebra\", \"WriteVTK\", \"LanguageServer\"])"
 
-# Setze Sprache auf Deutsch
-RUN echo -e "de_DE.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen && update-locale LANG=de_DE.UTF-8 LC_ALL=de_DE.UTF-8
-USER jovyan
-
-# Julia-Abhängigkeiten Installieren
-COPY packages.jl /tmp/packages.jl
-ENV JULIA_NUM_THREADS=auto
-RUN julia /tmp/packages.jl
-
-# Zusatz-Features aktivieren
+# Python
 COPY requirements.txt /tmp/requirements.txt
-RUN mamba install -y -c conda-forge --file /tmp/requirements.txt && mamba clean -a -y
+RUN mamba install -y --file /tmp/requirements.txt && mamba clean -a -y
 
-COPY logos/ikm /etc/motd
-COPY .zshrc $HOME/.zshrc
-
+# Kopiere Logos
 COPY logos/lfortran-32.png /opt/conda/share/jupyter/kernels/fortran/logo-32x32.png
 COPY logos/lfortran-64.png /opt/conda/share/jupyter/kernels/fortran/logo-64x64.png
 
-ENV SHELL=zsh
-ENV LANG=de_DE.UTF-8
-ENV LC_ALL=de_DE.UTF-8
+USER jovyan
 
 WORKDIR $HOME/work
