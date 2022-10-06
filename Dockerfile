@@ -15,7 +15,7 @@ RUN julia --project -e "using Pkg; Pkg.add([\"Plots\", \"PlotlyJS\", \"GenericLi
 
 # Python
 COPY requirements.txt /tmp/requirements.txt
-RUN mamba install -y --file /tmp/requirements.txt && mamba clean -a -y
+RUN mamba install -y --file /tmp/requirements.txt && mamba clean -a -y && rm /tmp/requirements.txt
 
 # Kopiere Logos
 COPY logos/lfortran-32.png /opt/conda/share/jupyter/kernels/fortran/logo-32x32.png
